@@ -1,7 +1,9 @@
 const fetch = require("node-fetch");
+require("dotenv").config();
 
-const apiUrl =
-  "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=BXJNNJMIFXFFZV2J";
+const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=5min&apikey=${
+  process.env.API_KEY
+}`;
 
 const stockData = (request, response) => {
   fetch(apiUrl)
